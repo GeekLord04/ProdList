@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="115dp"
+    android:layout_margin="8dp"
+    android:background="@drawable/item_background"
+    android:orientation="horizontal"
+    android:elevation="5dp"
+    android:padding="16dp">
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="80dp"
+        android:layout_height="80dp"
+        android:layout_gravity="center"
+        android:layout_marginRight="30dp" />
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="150dp"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="30dp"
+            android:id="@+id/prod_name"
+            android:fontFamily="@font/montserrat_medium"
+            android:text="Ice Cream121"
+            android:textColor="#1F2230"
+            android:textSize="15dp"/>
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:id="@+id/prod_type"
+            android:layout_marginTop="4dp"
+            android:textColor="#677C8E"
+            android:fontFamily="@font/montserrat"
+            android:text="Product"
+            android:textSize="13dp"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <TextView
+            android:id="@+id/prod_price"
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:gravity="center"
+            android:fontFamily="@font/montserrat_extrabold"
+            android:text="100.0"
+            android:textAlignment="center"
+            android:textColor="#1F2230"
+            android:textSize="20dp" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/prod_tax"
+            android:gravity="center"
+            android:layout_marginTop="4dp"
+            android:textColor="#677C8E"
+            android:fontFamily="@font/montserrat"
+            android:text="+15.0"
+            android:textSize="15dp"/>
+
+    </LinearLayout>
+
+
+
+
+</LinearLayout>
