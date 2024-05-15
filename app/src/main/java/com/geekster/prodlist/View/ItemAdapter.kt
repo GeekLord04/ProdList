@@ -31,13 +31,13 @@ class ItemAdapter(private val ItemList : List<ListResponseItem>) : ListAdapter<L
         fun bind(item: ListResponseItem) {
             binding.prodName.text = item.product_name
             binding.prodType.text = item.product_type
-            binding.prodTax.text = "Tax = ${item.tax}"
+            binding.prodTax.text = "+${item.tax}"
             binding.prodPrice.text = item.price.toString()
             binding.image.load(item.image) {
                 transformations(RoundedCornersTransformation(16f)) // Set the radius of rounded corners
                 size(128,128)
-                placeholder(R.drawable.loading_img) // Placeholder image while loading
-                error(R.drawable.no_img) // Error image if loading fails
+                placeholder(R.drawable.loading) // Placeholder image while loading
+                error(R.drawable.product) // Error image if loading fails
             }
         }
 
