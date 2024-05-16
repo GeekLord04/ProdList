@@ -5,6 +5,7 @@ ProdList is an Android app that fetches product and and lets you post one.
  ## Technologies Used
 - Kotlin
 - Retrofit for API communication
+- MVVM architecture
 - RecyclerView for displaying products
 - ViewModel and LiveData for managing UI-related data
 - Coil for Image Loading
