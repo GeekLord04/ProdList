@@ -83,4 +83,7 @@ dependencies {
 
     //Button
     implementation(libs.fit.button)
+
+    //Splash API
+    implementation(libs.androidx.core.splashscreen)
 }
