@@ -80,4 +80,7 @@ dependencies {
 
     //Swipe Refresh Layout
     implementation(libs.androidx.swiperefreshlayout)
+
+    //Button
+    implementation(libs.fit.button)
 }

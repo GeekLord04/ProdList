@@ -13,6 +13,8 @@ import com.geekster.prodlist.databinding.ListItemBinding
 
 class ItemAdapter(private val ItemList : List<ListResponseItem>) : ListAdapter<ListResponseItem, ItemAdapter.ListViewHolder>(ComparatorDiffUtil())
 {
+
+    private var originalList: List<ListResponseItem> = emptyList()
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ItemAdapter.ListViewHolder {
         val binding = ListItemBinding.inflate(LayoutInflater.from(parent.context), parent, false)
         return ListViewHolder(binding)
@@ -25,6 +27,19 @@ class ItemAdapter(private val ItemList : List<ListResponseItem>) : ListAdapter<L
         }
     }
 
+    fun setOriginalList(list: List<ListResponseItem>) {
+        originalList = list
+        submitList(list)
+    }
+    fun filter(query: String?) {
+        if (query.isNullOrEmpty()) {
+            submitList(originalList)
+        } else {
+            val filteredList = originalList.filter { it.product_name.contains(query, true) }
+            submitList(filteredList)
+        }
+    }
+
     inner class ListViewHolder(private val binding: ListItemBinding) :
         RecyclerView.ViewHolder(binding.root) {
 
@@ -34,8 +49,7 @@ class ItemAdapter(private val ItemList : List<ListResponseItem>) : ListAdapter<L
             binding.prodTax.text = "+${item.tax}"
             binding.prodPrice.text = item.price.toString()
             binding.image.load(item.image) {
-                transformations(RoundedCornersTransformation(16f)) // Set the radius of rounded corners
-                size(128,128)
+                transformations(RoundedCornersTransformation(16f)) //radius of rounded corners
                 placeholder(R.drawable.loading) // Placeholder image while loading
                 error(R.drawable.product) // Error image if loading fails
             }

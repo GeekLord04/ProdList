@@ -1,13 +1,18 @@
 package com.geekster.prodlist.View
 
+import android.content.Context
+import android.net.ConnectivityManager
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
+import android.view.MotionEvent
 import android.view.View
 import android.view.ViewGroup
+import android.widget.SearchView
 import android.widget.Toast
 import androidx.fragment.app.viewModels
 import androidx.lifecycle.lifecycleScope
+import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.geekster.prodlist.R
 import com.geekster.prodlist.Viewmodel.GetProductViewModel
@@ -39,8 +44,13 @@ class GetProductFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
 
         bindObserver()
-        lifecycleScope.launch {
-            getProductViewModel.getListData()
+
+        if (isInternetAvailable()) {
+            lifecycleScope.launch {
+                getProductViewModel.getListData()
+            }
+        } else {
+            Toast.makeText(requireContext(), "No internet connection available", Toast.LENGTH_SHORT).show()
         }
 
         adapter = ItemAdapter(mutableListOf())
@@ -48,17 +58,62 @@ class GetProductFragment : Fragment() {
             LinearLayoutManager.VERTICAL,false)
         binding.itemList.adapter = adapter
 
+
+        binding.addItemBtn.setOnClickListener {
+            findNavController().navigate(R.id.action_getProductFragment_to_addProductFragment)
+        }
+
+        binding.swipeRefreshLayout.setOnRefreshListener {
+            lifecycleScope.launch {
+                getProductViewModel.getListData()
+
+            }
+        }
+
+        binding.searchView.setOnQueryTextListener(object : SearchView.OnQueryTextListener{
+            override fun onQueryTextSubmit(query: String?): Boolean {
+                return false
+            }
+
+            override fun onQueryTextChange(newText: String?): Boolean {
+                adapter.filter(newText)
+                return false
+            }
+
+        })
+
+        binding.itemList.setOnTouchListener { v, event ->
+            if (event.action == MotionEvent.ACTION_DOWN) {
+                binding.searchView.clearFocus()
+
+            }
+            return@setOnTouchListener false
+        }
+
+    }
+
+    private fun isInternetAvailable(): Boolean {
+        val connectivityManager =
+            requireContext().getSystemService(Context.CONNECTIVITY_SERVICE) as ConnectivityManager
+        val activeNetworkInfo = connectivityManager.activeNetworkInfo
+        return activeNetworkInfo != null && activeNetworkInfo.isConnected
     }
 
     private fun bindObserver() {
         getProductViewModel.listLiveData.observe(viewLifecycleOwner) {
             when(it) {
-                is NetworkResult.Error -> Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
-                is NetworkResult.Loading -> println("Loading")
+                is NetworkResult.Error -> {
+                    binding.swipeRefreshLayout.isRefreshing = false
+                    Toast.makeText(requireContext(), it.message.toString(), Toast.LENGTH_SHORT).show()
+                }
+
+                is NetworkResult.Loading -> {
+                    binding.swipeRefreshLayout.isRefreshing = true
+                }
+
                 is NetworkResult.Success -> {
-
-                    adapter.submitList(it.data)
-
+                    adapter.setOriginalList(it.data ?: emptyList())
+                    binding.swipeRefreshLayout.isRefreshing = false
                 }
             }
         }

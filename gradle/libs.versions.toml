@@ -1,6 +1,7 @@
 [versions]
 agp = "8.4.0"
 coil = "2.6.0"
+fitButton = "2.0.0"
 gson = "2.10.1"
 hiltAndroid = "2.49"
 kotlin = "1.9.0"
@@ -30,6 +31,7 @@ androidx-navigation-ui-ktx = { module = "androidx.navigation:navigation-ui-ktx",
 androidx-navigation-fragment-ktx = { module = "androidx.navigation:navigation-fragment-ktx", version.ref = "navigationFragmentKtx" }
 androidx-swiperefreshlayout = { module = "androidx.swiperefreshlayout:swiperefreshlayout", version.ref = "swiperefreshlayout" }
 converter-gson = { module = "com.squareup.retrofit2:converter-gson", version.ref = "retrofit" }
+fit-button = { module = "io.github.nikartm:fit-button", version.ref = "fitButton" }
 gson = { module = "com.google.code.gson:gson", version.ref = "gson" }
 coil = { module = "io.coil-kt:coil", version.ref = "coil" }
 hilt-android = { module = "com.google.dagger:hilt-android", version.ref = "hiltAndroid" }

@@ -1,14 +1,141 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#ECF4D6"
     tools:context=".View.AddProductFragment">
 
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/hello_blank_fragment" />
 
-</FrameLayout>
+    <LinearLayout
+        android:id="@+id/linearLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="16dp"
+        android:layout_marginTop="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <EditText
+            android:id="@+id/etProductName"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="text"
+            android:fontFamily="@font/montserrat"
+            android:background="@drawable/addprod_bg"
+            android:hint="Product Name"
+            android:padding="12dp"
+            android:textColor="#4A4A4A" />
+
+        <EditText
+            android:id="@+id/etProductType"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:inputType="text"
+            android:fontFamily="@font/montserrat"
+            android:background="@drawable/addprod_bg"
+            android:hint="Product Type"
+            android:padding="12dp"
+            android:textColor="#4A4A4A"/>
+
+        <EditText
+            android:id="@+id/etPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="16dp"
+            android:fontFamily="@font/montserrat"
+            android:inputType="numberDecimal"
+            android:background="@drawable/addprod_bg"
+            android:hint="Price"
+            android:padding="12dp"
+            android:textColor="#4A4A4A" />
+
+        <EditText
+            android:id="@+id/etTax"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/addprod_bg"
+            android:hint="Tax"
+            android:inputType="numberDecimal"
+            android:fontFamily="@font/montserrat"
+            android:padding="12dp"
+            android:textColor="#4A4A4A" />
+
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnAddProduct"
+        android:layout_width="189dp"
+        android:layout_height="59dp"
+        android:layout_marginBottom="40dp"
+        android:fontFamily="@font/montserrat"
+        android:backgroundTint="#2E426C"
+        android:text="Add Product"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/imageView"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/imageView"
+        app:layout_constraintTop_toBottomOf="@+id/imageView"
+        app:layout_constraintVertical_bias="1.0" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="32dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSelectImage"
+        tools:src="@tools:sample/avatars" />
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        style="?android:attr/progressBarStyle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="invisible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.462"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.573" />
+
+    <com.github.nikartm.button.FitButton
+        android:id="@+id/btnSelectImage"
+        android:layout_width="168dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:enabled="true"
+        android:gravity="center_vertical"
+        app:fb_backgroundColor="#3E5A93"
+        app:fb_cornerRadius="12dp"
+        app:fb_divColor="#fff"
+        app:fb_divHeight="40dp"
+        app:fb_divWidth="1dp"
+        app:fb_fontFamilyRes="@font/montserrat"
+        app:fb_icon="@drawable/baseline_add_a_photo_24"
+        app:fb_iconColor="#FFF"
+        app:fb_iconHeight="28dp"
+        app:fb_iconMarginEnd="16dp"
+        app:fb_iconMarginStart="20dp"
+        app:fb_iconPosition="left"
+        app:fb_iconWidth="28dp"
+        app:fb_rippleColor="#FBE9E7"
+        app:fb_shape="rectangle"
+        app:fb_text="Add Image"
+        app:fb_textColor="#FFF"
+        app:fb_textPaddingStart="16dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout" />
+
+
+</androidx.constraintlayout.widget.ConstraintLayout>
