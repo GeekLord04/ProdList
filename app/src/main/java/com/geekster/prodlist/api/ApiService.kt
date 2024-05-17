@@ -1,7 +1,7 @@
 package com.geekster.prodlist.api
 
-import com.geekster.getinfo.models.AddResponse
-import com.geekster.getinfo.models.ListResponseItem
+import com.geekster.prodlist.Models.AddResponse
+import com.geekster.prodlist.Models.ListResponseItem
 import com.geekster.prodlist.utils.Constants.addAPI
 import com.geekster.prodlist.utils.Constants.getAPI
 import okhttp3.RequestBody

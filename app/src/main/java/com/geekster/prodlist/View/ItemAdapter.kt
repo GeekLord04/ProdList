@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.ListAdapter
 import androidx.recyclerview.widget.RecyclerView
 import coil.load
 import coil.transform.RoundedCornersTransformation
-import com.geekster.getinfo.models.ListResponseItem
+import com.geekster.prodlist.Models.ListResponseItem
 import com.geekster.prodlist.R
 import com.geekster.prodlist.databinding.ListItemBinding
 

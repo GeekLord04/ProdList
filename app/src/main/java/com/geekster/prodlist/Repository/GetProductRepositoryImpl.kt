@@ -1,6 +1,6 @@
 package com.geekster.prodlist.Repository
 
-import com.geekster.getinfo.models.ListResponseItem
+import com.geekster.prodlist.Models.ListResponseItem
 import com.geekster.prodlist.api.ApiService
 import com.geekster.prodlist.utils.NetworkResult
 import org.json.JSONObject

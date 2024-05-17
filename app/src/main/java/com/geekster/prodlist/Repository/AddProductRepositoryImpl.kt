@@ -1,7 +1,7 @@
 package com.geekster.prodlist.Repository
 
 import android.util.Log
-import com.geekster.getinfo.models.AddResponse
+import com.geekster.prodlist.Models.AddResponse
 import com.geekster.prodlist.api.ApiService
 import com.geekster.prodlist.utils.Constants.TAG
 import com.geekster.prodlist.utils.NetworkResult

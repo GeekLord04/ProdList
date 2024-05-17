@@ -4,8 +4,7 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.geekster.getinfo.models.AddResponse
-import com.geekster.getinfo.models.ListResponseItem
+import com.geekster.prodlist.Models.AddResponse
 import com.geekster.prodlist.Repository.AddProductRepositoryImpl
 import com.geekster.prodlist.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel

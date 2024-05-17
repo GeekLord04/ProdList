@@ -3,13 +3,11 @@ package com.geekster.prodlist.Viewmodel
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import androidx.lifecycle.viewModelScope
-import com.geekster.getinfo.models.ListResponseItem
+import com.geekster.prodlist.Models.ListResponseItem
 import com.geekster.prodlist.Repository.GetProductRepositoryImpl
 import com.geekster.prodlist.utils.NetworkResult
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.Dispatchers
-import kotlinx.coroutines.async
 import kotlinx.coroutines.withContext
 import javax.inject.Inject
 

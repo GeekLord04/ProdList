@@ -1,4 +1,4 @@
-package com.geekster.getinfo.models
+package com.geekster.prodlist.Models
 
 
 data class AddResponse(

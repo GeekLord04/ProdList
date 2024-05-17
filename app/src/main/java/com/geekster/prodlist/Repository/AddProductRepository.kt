@@ -1,6 +1,6 @@
 package com.geekster.prodlist.Repository
 
-import com.geekster.getinfo.models.AddResponse
+import com.geekster.prodlist.Models.AddResponse
 import com.geekster.prodlist.utils.NetworkResult
 import java.io.File
 
